@@ -1,5 +1,15 @@
+
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // Prevent form from submitting
+
+    if (validateAge()) {
+        
+        window.location.href = 'home.html';
+    }
+});
+
 function validateAge() {
-    var dob = document.querySelector('.date').value;
+    var dob = document.getElementById('dateOfBirth').value;
     if (dob) {
         var birthDate = new Date(dob);
         var today = new Date();
@@ -14,7 +24,6 @@ function validateAge() {
             alert("User age should be above 15 to have an account on Facebook.");
             return false;
         } else {
-            alert("Account created successfully!");
             return true;
         }
     } else {
@@ -22,3 +31,4 @@ function validateAge() {
         return false;
     }
 }
+
